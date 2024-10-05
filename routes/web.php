@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\HelloController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,6 +15,10 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/saludo', [HelloController::class, 'index']);
+
+Route::get('/direcciones', [DireccionController::class, 'index'])->name('direcciones.index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
